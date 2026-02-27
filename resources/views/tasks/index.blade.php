@@ -9,7 +9,7 @@
     <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.447.0/dist/umd/lucide.min.js"></script>
     <!-- SweetAlert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     
@@ -132,6 +132,19 @@
 
         .btn-icon:hover {
             transform: scale(1.1);
+        }
+
+        .btn-icon i, .btn-icon svg {
+            width: 18px !important;
+            height: 18px !important;
+            stroke-width: 2.5;
+        }
+
+        i[data-lucide] {
+            width: 18px;
+            height: 18px;
+            stroke-width: 2.5;
+            vertical-align: middle;
         }
 
         .modal-content {
@@ -343,7 +356,9 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-    lucide.createIcons();
+    document.addEventListener('DOMContentLoaded', function() {
+        lucide.createIcons();
+    });
 
     function editTask(id) {
         fetch(`/task/edit/${id}`)
